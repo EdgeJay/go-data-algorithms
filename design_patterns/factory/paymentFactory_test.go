@@ -39,8 +39,10 @@ func TestGetPaymentMethodError(t *testing.T) {
 	}
 
 	if err == nil {
-		t.Error("Expected pay method to return error, got nil")
-	} else if actualMessage := fmt.Sprint(err); actualMessage != expectedMessage {
+		t.Fatal("Expected pay method to return error, got nil")
+	}
+
+	if actualMessage := fmt.Sprint(err); actualMessage != expectedMessage {
 		t.Errorf("Expected pay method to return error with message \"%s\", got \"%s\"", expectedMessage, actualMessage)
 	}
 }
