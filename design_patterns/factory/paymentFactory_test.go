@@ -66,3 +66,11 @@ func TestGetPaymentMethodForCreditCard(t *testing.T) {
 		t.Errorf("Expected message to be \"%s\", got \"%s\"", expectedMessage, message)
 	}
 }
+
+func TestGetPaymentMethodNil(t *testing.T) {
+	paymentMethod := getPaymentMethod(3)
+
+	if paymentMethod != nil {
+		t.Error("Expected payment method to be nil when invalid method is provided")
+	}
+}
